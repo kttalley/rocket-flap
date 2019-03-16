@@ -4,7 +4,7 @@ function setup() {
     rectMode(CENTER);
     angleMode(DEGREES);
     createCanvas(700, 550);
-    grav = createVector(0, 1);
+    grav = createVector(0, 10);
 }
 
 

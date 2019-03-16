@@ -16,7 +16,7 @@ let Flappy = {
         this.timer = this.timer+ 0.1;
         translate(this.pos.x, this.pos.y);
         scale(this.sze);
-        rotate(this.pos.y/15 - this.face);
+        rotate(this.acc.y/15 - this.face);
         fill(230,150,0,250);
         triangle(15,25+this.timer/500,50,25+this.timer/500,32.5,random(25,55)+this.timer/50);
         
@@ -35,10 +35,21 @@ let Flappy = {
         this.pos.add(this.vel);
         this.vel.add(this.acc);
         this.acc.add(this.mass);
-        
-        if(keyIsPressed || mouseIsPressed){
-            this.vel.y = -5;
+
+        if(this.acc.y > 0.05){
+            this.acc.y = 0.05;
         }
+        if(this.vel.y > 20){
+            this.vel.y =20;
+        }
+        if(this.acc.y < 0.05){
+            this.acc.y = 0.05;
+        }
+        if(keyIsPressed || mouseIsPressed){
+            this.acc.y += -0.2;
+        }
+
+
         
         // if(this.asc === false){
         //     this.acc.add(this.mass);
@@ -56,9 +67,18 @@ let Flappy = {
         
         //boundaries
         if(this.pos.y > height){
-            this.vel.y = random(-10,-20);
-            this.face = random (-200, 200);
-            this.face = this.face-random(-20, 20);
+            this.vel.y = random(-1,-2);
+            this.acc.y = 0;
+            this.face = random (-92, 0);
+            this.face = this.face-(random(-5, 10));
+        }
+
+        if(this.pos.y < 0){
+            this.vel.y = random(1,2);
+            this.acc.y = 0;
+
+            this.face = random (-92, 0);
+            this.face = this.face-(random(-5, 10));
         }
     },
     applyForce: function (force) {

@@ -1,21 +1,23 @@
+let tileRez = 70;
 const bottomTower3 = function (x, y) {
-    Tile(x,y);
-    Tile(x,y+100);
-    Tile(x,y+200);
-    Tile(x,y+300);
+    Tile(x,y,tileRez);
+    Tile(x,y+(tileRez*2),tileRez);
+    Tile(x,y+(tileRez*3));
+    Tile(x,y+((tileRez*2)));
   };
   
   const topTower2 = function (x, y) {
-      Tile(x, y);
-      Tile(x, y + 100);
-      Tile(x, y + 200);
+      Tile(x, y, tileRez);
+      Tile(x, y + tileRez, tileRez);
+      Tile(x, y + (tileRez*2), tileRez);
+      Tile(x, y + (tileRez*3), tileRez);
   
       //   Tile(x,y+200);
   };
   const bottomTower2 = function (x, y) {
-      Tile(x, y);
-      Tile(x, y - 100);
-      Tile(x, y - 200);
+      Tile(x, y, tileRez);
+      Tile(x, y - tileRez, tileRez);
+      Tile(x, y - (tileRez*2), tileRez);
       //   Tile(x,y-200);
   };
   const topTower1 = function (x, y) {
