@@ -42,5 +42,7 @@ function draw() {
     topTower1(obst3, 0);
     bottomTower2(obst4, 550);
     bottomTower3(obst5, 550);
+    
+    healthBar.show();
 }
 
